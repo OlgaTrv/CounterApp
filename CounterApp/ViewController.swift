@@ -7,13 +7,24 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
 
+    @IBOutlet private weak var tapButton: UIButton!
+    @IBOutlet private weak var counterLabel: UILabel!
+    var counter = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        tapButton.layer.cornerRadius = 10
+        tapButton.layer.shadowColor = UIColor.lightGray.cgColor
+        tapButton.layer.shadowOpacity = 0.3
+        counterLabel.text = "Значение счётчика: \(counter)"
     }
 
-
+    @IBAction func buttondidTap(_ sender: Any) {
+        counter += 1
+        counterLabel.text = "Значение счётчика: \(counter)"
+    }
+    
 }
 
